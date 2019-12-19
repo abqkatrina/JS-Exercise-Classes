@@ -40,7 +40,28 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
+
+
 class Person {
+  constructor(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
+
+  eat(someFood){
+    if(this.stomach.length < 10){
+    this.stomach.push(someFood);
+    }
+  }
+
+  poop(){
+    this.stomach = [];
+  }
+
+  toString(name, age){
+    return `${this.name}, ${this.age}`;
+  }
 
 }
 
@@ -59,7 +80,25 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
 
+  fill(gallons){
+    this.tank += gallons;
+  }
+
+  drive(distance){
+    let gas = distance/milesPerGallon;
+    this.odometer += distance;
+    this.tank -= gas;
+    if(this.tank = 0){
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+  }
 }
 
 /*
@@ -75,7 +114,15 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.location = location;
+  }
 
+  speak(){
+    return `Hello my name is ${name}, I am from ${location}.`
+  }
 }
 
 /*
@@ -93,7 +140,19 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
+  constructor(){
+    this.speciality = specialty;
+    this.favLanguage = favLanguage;
+    this.catchPhrase = catchPhrase;
+  }
 
+  demo(subject){
+    return `Today we are learning about {subject}`;
+  }
+
+  grade(student, subject){
+    return `{student.name} receives a perfect score on {subject}`
+  }
 }
 
 /*
@@ -112,7 +171,23 @@ class Instructor {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student {
+  constructor(){
+    this.previousBackground = previousBackground;
+    this.className = className;
+    this.favSubjects = favSubjects;
+  }
 
+  listSubjects(){
+    return `Loving ${favSubjects.toString}`;
+  };
+
+  PRAssignment(subject){
+    return `${student.name} has submitted a PR for ${subject}.`
+  };
+
+  sprintChallenge(subject){
+    return `${student.name} has begun spring challenge on ${subject}.`
+  };
 }
 
 /*
@@ -129,7 +204,18 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager {
+  constructor(){
+    this.gradClassName = gradClassName;
+    this.favInstructor = favInstructor;
+  }
 
+  standUp(){
+    `${this.name} announces to ${channel}, @channel standby times!`;
+  }
+
+  debugsCode(){
+    return `${this.name} debugs ${student.name}'s code on ${subject}.'`
+  }
 }
 
 /*
