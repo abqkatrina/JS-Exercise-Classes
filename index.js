@@ -153,7 +153,7 @@ class Instructor extends Lambdasian {
     return `Today we are learning about ${subject}`;
   }
 
-  grade(subject){
+  grade(student, subject){
     return `${student.name} receives a perfect score on ${subject}`
   }
 }
@@ -208,17 +208,18 @@ class Student extends Lambdasian {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager extends Instructor{
-  constructor(){
-    this.gradClassName = gradClassName;
-    this.favInstructor = favInstructor;
+  constructor(attributes){
+    super(attributes);
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
   }
 
-  standUp(){
-    `${this.name} announces to ${channel}, @channel standby times!`;
+  standUp(channel){
+    return`${this.name} announces to ${channel}, @channel standby times!`;
   }
 
-  debugsCode(){
-    return `${this.name} debugs ${student.name}'s code on ${subject}.'`
+  debugsCode(student, subject){
+    return`${this.name} debugs ${student.name}'s code on ${subject}.`;
   }
 }
 
