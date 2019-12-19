@@ -92,9 +92,11 @@ class Car {
   }
 
   drive(distance){
-    let gas = distance/milesPerGallon;
+    let gas = distance/this.milesPerGallon;
+    if (gas > 0){
     this.odometer += distance;
     this.tank -= gas;
+  }
     if(this.tank = 0){
       return `I ran out of fuel at ${this.odometer} miles!`;
     };
@@ -140,19 +142,19 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor(){
-    Lambdasian.call(this, attributes)
-    this.speciality = specialty;
-    this.favLanguage = favLanguage;
-    this.catchPhrase = catchPhrase;
+  constructor(attributes){
+    super(attributes);
+    this.specialty = attributes.specialty,
+    this.favLanguage = attributes.favLanguage,
+    this.catchPhrase = attributes.catchPhrase;
   }
 
   demo(subject){
-    return `Today we are learning about {subject}`;
+    return `Today we are learning about ${subject}`;
   }
 
-  grade(student, subject){
-    return `{student.name} receives a perfect score on {subject}`
+  grade(subject){
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
 
@@ -172,22 +174,23 @@ class Instructor extends Lambdasian {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor(){
-    this.previousBackground = previousBackground;
-    this.className = className;
-    this.favSubjects = favSubjects;
+  constructor(attributes){
+    super(attributes);
+    this.previousBackground = attributes.previousBackground,
+    this.className = attributes.className,
+    this.favSubjects = attributes.favSubjects;
   }
 
   listSubjects(){
-    return `Loving ${favSubjects.toString}`;
+    return `Loving ${this.favSubjects}`;
   };
 
   PRAssignment(subject){
-    return `${student.name} has submitted a PR for ${subject}.`
+    return `${this.name} has submitted a PR for ${subject}.`
   };
 
   sprintChallenge(subject){
-    return `${student.name} has begun spring challenge on ${subject}.`
+    return `${this.name} has begun spring challenge on ${subject}.`
   };
 }
 
