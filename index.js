@@ -93,18 +93,15 @@ class Car {
 
   drive(distance){
     let gas = distance / this.milesPerGallon;
-    this.tank -= gas;
-
     if (this.tank >= gas){
       this.odometer += distance;
-    }
-
-    if(distance > this.tank * this.milesPerGallon){
+      this.tank -= gas;
+    } else {
       this.odometer += this.tank * this.milesPerGallon;
       this.tank = 0;
       return `I ran out of fuel at ${this.odometer} miles!`;
 
-          }
+      }
   }
 }
 
@@ -184,6 +181,7 @@ class Student extends Lambdasian {
     this.previousBackground = attributes.previousBackground,
     this.className = attributes.className,
     this.favSubjects = attributes.favSubjects;
+    this.grade = 69;
   }
 
   listSubjects(){
@@ -233,15 +231,19 @@ class ProjectManager extends Instructor{
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
     - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
     - Add a graduate method to a student.
+
+
     this.grade = 50%;
+
     assign(){
      this.grade + math.random;
-     return grade;
   }
     graduate(){
-    if (this.grade >= 70%){
-    return `Graduate!`;
-  } ;
+      if (this.grade >= 70%){
+      return `Graduate!`;
+      } else {
+        assign();
+      };
 
   if (this.grade < 70%){
   assign();
